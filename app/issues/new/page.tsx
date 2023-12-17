@@ -17,7 +17,7 @@ const NewIssuePage = () => {
   const {register, control, handleSubmit} = useForm<IssueForm>();
 
   return (
-    <div 
+    <form 
       className='max-w-xl space-y-3' 
       onSubmit={handleSubmit(async (data) => {
         await axios.post('/api/issues', data);
@@ -32,7 +32,7 @@ const NewIssuePage = () => {
         render={({ field }) => <SimpleMDE placeholder='Description' {...field} />} 
       />
       <Button>Submit New Issue</Button>
-    </div>
+    </form>
   )
 }
 
