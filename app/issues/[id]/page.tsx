@@ -12,6 +12,11 @@ interface Props {
 }
 
 const IssueDetailPage = async ({ params }: Props) => {
+  if (!params.id || isNaN(parseInt(params.id))) {
+    // Handle invalid id (redirect or show error message)
+    return;
+    }
+
   const issue = await prisma.issue.findUnique({
     where: { id: parseInt(params.id) }
   }); 
